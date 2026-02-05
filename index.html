@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Voice Agents for Home Services | LFSA Digital</title>
-    <meta name="description" content="Never miss a call again. AI-powered voice agents that answer calls, book appointments, and log leads — 24/7. Built for HVAC and roofing contractors.">
+    <meta name="description" content="Never miss a call again. AI-powered voice agents that answer calls, book appointments, and log leads 24/7. Built for HVAC and roofing contractors.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -73,8 +73,25 @@
 
         /* Hero */
         .hero {
-            padding: 100px 0 80px; text-align: center;
+            padding: 100px 0 80px;
             background: radial-gradient(ellipse at 50% 0%, rgba(106, 0, 255, 0.08) 0%, transparent 60%);
+        }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .hero-left { text-align: left; }
+        .hero-right { position: relative; }
+        .hero-video {
+            border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+            background: var(--surface); aspect-ratio: 16/9; width: 100%;
+        }
+        .hero-video iframe, .hero-video video { width: 100%; height: 100%; border: none; }
+        .hero-video .video-placeholder {
+            width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--text-muted); font-size: 16px; background: linear-gradient(135deg, var(--surface) 0%, #1a1a30 100%);
+        }
+        .hero-video .video-placeholder .play-icon {
+            width: 64px; height: 64px; border-radius: 50%; background: var(--yellow);
+            display: flex; align-items: center; justify-content: center; font-size: 24px;
+            color: var(--dark); margin-bottom: 12px; box-shadow: 0 8px 30px rgba(255, 193, 7, 0.3);
         }
         .hero-badge {
             display: inline-block; font-size: 13px; font-weight: 500; color: var(--yellow);
@@ -82,10 +99,10 @@
             padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
             text-transform: uppercase; letter-spacing: 1px;
         }
-        .hero h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
         .hero h1 .highlight { background: linear-gradient(90deg, var(--yellow), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 18px; color: var(--text-secondary); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
-        .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .hero p { font-size: 17px; color: var(--text-secondary); max-width: 580px; margin: 0 0 32px; line-height: 1.7; }
+        .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: var(--dark);
             padding: 14px 32px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s;
@@ -246,6 +263,10 @@
 
         /* Mobile */
         @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+            .hero-left { text-align: center; }
+            .hero-left .hero-ctas { justify-content: center; }
+            .hero p { margin: 0 auto 32px; }
             .stats-grid { grid-template-columns: 1fr; gap: 24px; }
             .hero { padding: 60px 0 40px; }
             .features, .how-it-works, .pricing, .conversation-section, .video-section, .objection { padding: 60px 0; }
@@ -264,9 +285,9 @@
             if (name || company) {
                 const greeting = document.getElementById('personalized-greeting');
                 let text = '';
-                if (name && company) text = `👋 Hey ${name} from ${company} — Larissa sent you this`;
-                else if (name) text = `👋 Hey ${name} — Larissa sent you this`;
-                else if (company) text = `👋 Hey ${company} — Larissa sent you this`;
+                if (name && company) text = `👋 Hey ${name} from ${company}, Larissa sent you this`;
+                else if (name) text = `👋 Hey ${name}, Larissa sent you this`;
+                else if (company) text = `👋 Hey ${company}, Larissa sent you this`;
                 greeting.textContent = text;
                 greeting.classList.add('visible');
             }
@@ -291,12 +312,23 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">AI Voice Agents for Home Services</div>
-            <h1>Stop losing jobs to<br><span class="highlight">missed calls.</span></h1>
-            <p>An AI receptionist that answers your phone 24/7 — after hours, lunch breaks, busy days. Books appointments, handles emergencies, logs everything. Your team stays focused. No call goes unanswered.</p>
-            <div class="hero-ctas">
-                <a href="#demo-video" class="btn-primary">▶ Watch Demo</a>
-                <a href="https://cal.com/luiz-almeida-9d1muz/ai-automation-for-hvac" class="btn-secondary">Book Your Free Call</a>
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="hero-badge">AI Voice Agents for Home Services</div>
+                    <h1>Stop losing jobs to<br><span class="highlight">missed calls.</span></h1>
+                    <p>An AI receptionist that answers your phone 24/7. After hours, lunch breaks, busy days. Books appointments, handles emergencies, logs everything. Your team stays focused. No call goes unanswered.</p>
+                    <div class="hero-ctas">
+                        <a href="https://cal.com/luiz-almeida-9d1muz/ai-automation-for-hvac" class="btn-primary">Book Your Free Call</a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="hero-video" id="demo-video">
+                        <div class="video-placeholder">
+                            <div class="play-icon">▶</div>
+                            <div>Demo video coming soon</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -306,7 +338,7 @@
             <div class="stats-grid">
                 <div>
                     <div class="stat-number red">27%</div>
-                    <div class="stat-label">of <strong>HVAC calls</strong> go unanswered<br>— up to 50%+ after hours</div>
+                    <div class="stat-label">of <strong>HVAC calls</strong> go unanswered<br>(up to 50%+ after hours)</div>
                 </div>
                 <div>
                     <div class="stat-number orange">$3K–$15K</div>
@@ -320,18 +352,7 @@
         </div>
     </section>
 
-    <section class="video-section" id="demo-video">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <p class="section-subtitle">Watch the AI handle a real call — booking, emergencies, and all</p>
-            <div class="video-wrapper">
-                <div class="video-placeholder">
-                    <div class="play-icon">▶</div>
-                    <div>Demo video coming soon</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Video moved to hero section -->
 
     <section class="features">
         <div class="container">
@@ -356,7 +377,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">📋</div>
                     <h3>Logs Everything</h3>
-                    <p>Every call gets logged to your CRM — customer name, number, what they need, and what happened. Zero manual entry.</p>
+                    <p>Every call gets logged to your CRM: customer name, number, what they need, and what happened. Zero manual entry.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💬</div>
@@ -380,14 +401,14 @@
                     <div class="step-num">1</div>
                     <div class="step-content">
                         <h3>Customer calls your number</h3>
-                        <p>After hours, during lunch, or when all lines are busy — the AI picks up in under a second.</p>
+                        <p>After hours, during lunch, or when all lines are busy. The AI picks up in under a second.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">2</div>
                     <div class="step-content">
                         <h3>AI has a real conversation</h3>
-                        <p>It understands what they need, collects their info, and handles objections naturally — just like your best receptionist.</p>
+                        <p>It understands what they need, collects their info, and handles objections naturally. Just like your best receptionist.</p>
                     </div>
                 </div>
                 <div class="step">
@@ -423,7 +444,7 @@
                 </div>
                 <div class="chat-msg ai">
                     <div class="chat-label">🤖 Alex (AI)</div>
-                    I'm sorry to hear that — let's get you taken care of. Can I get your name?
+                    I'm sorry to hear that, let's get you taken care of. Can I get your name?
                 </div>
                 <div class="chat-msg customer">
                     <div class="chat-label">Customer</div>
@@ -459,18 +480,18 @@
                 <div class="objection-card reality">
                     <div class="objection-tag reality-tag">✅ The Reality</div>
                     <h3>Even an imperfect AI call beats no answer at all</h3>
-                    <p>If the AI doesn't close them, it still captures their name, number, and what they need — then pings you. Right now, a missed call gives you <strong>zero info</strong>. This gives you a warm lead.</p>
-                    <div class="stat-highlight">📊 85% of callers who reach voicemail don't call back — your competitor gets that job</div>
+                    <p>If the AI doesn't close them, it still captures their name, number, and what they need, then pings you. Right now, a missed call gives you <strong>zero info</strong>. This gives you a warm lead.</p>
+                    <div class="stat-highlight">📊 80% of callers sent to voicemail never leave a message and don't call back</div>
                 </div>
                 <div class="objection-card myth">
                     <div class="objection-tag myth-tag">❌ The Fear</div>
                     <h3>Customers will hang up on a robot</h3>
-                    <p>You imagine a clunky phone tree. "Press 1 for scheduling, press 2 for..." — of course people hate that. You hate that too.</p>
+                    <p>You imagine a clunky phone tree. "Press 1 for scheduling, press 2 for..." Of course people hate that. You hate that too.</p>
                 </div>
                 <div class="objection-card reality">
                     <div class="objection-tag reality-tag">✅ The Reality</div>
                     <h3>Many won't even notice it's AI</h3>
-                    <p>Modern voice AI sounds like a real person. It listens, responds naturally, and adapts to the conversation. No menus, no scripts — just a helpful voice on the other end.</p>
+                    <p>Modern voice AI sounds like a real person. It listens, responds naturally, and adapts to the conversation. No menus, no scripts. Just a helpful voice on the other end.</p>
                     <div class="stat-highlight">💡 Most callers complete the full booking without realizing they spoke to AI</div>
                 </div>
             </div>
@@ -484,7 +505,7 @@
             <p class="section-subtitle" style="text-align:center">One-time setup + pay only for what you use</p>
             <div class="pricing-cards">
                 <div class="price-card featured" style="position:relative">
-                    <div class="price-badge">🔥 Limited Offer — Save $500</div>
+                    <div class="price-badge">🔥 Limited Offer: Save $500</div>
                     <div class="price-original">$1,500</div>
                     <div class="price-amount">$1,000</div>
                     <div class="price-period">One-time setup · Fixed price</div>
@@ -505,7 +526,7 @@
                         <li>Pay only for what you use</li>
                         <li>No monthly minimums</li>
                         <li>1-month money-back guarantee</li>
-                        <li>Cancel anytime — no long-term contracts</li>
+                        <li>Cancel anytime, no long-term contracts</li>
                         <li>~$50/month for most businesses</li>
                     </ul>
                     <p style="font-size:12px; color:var(--text-muted); margin-top:14px; line-height:1.5;">*Usage rate may vary ±10% depending on call complexity and duration</p>
@@ -517,7 +538,7 @@
                 <div class="comparison-box old">
                     <div class="comp-label">Full-time receptionist</div>
                     <div class="comp-value">$3,500+/mo</div>
-                    <div class="comp-detail">Salary alone — no benefits, no overtime, no after-hours</div>
+                    <div class="comp-detail">Salary alone. No benefits, no overtime, no after-hours</div>
                 </div>
                 <div class="comparison-box new">
                     <div class="comp-label">AI Receptionist</div>
@@ -536,7 +557,7 @@
     <section class="final-cta">
         <div class="container">
             <h2>Ready to stop losing calls?</h2>
-            <p>Get your AI receptionist set up in 48 hours. See it in action before you commit.</p>
+            <p>Get your AI receptionist set up in one week. See it in action before you commit.</p>
             <a href="https://cal.com/luiz-almeida-9d1muz/ai-automation-for-hvac" class="btn-primary">Book Your Free Call →</a>
             <div class="guarantee">🛡️ 1-month money-back guarantee · No risk</div>
         </div>
