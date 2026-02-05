@@ -66,21 +66,39 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
         }
-        .logo img {
-            height: 34px;
-            width: 34px;
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon img {
+            height: 44px;
+            width: 44px;
             object-fit: contain;
         }
         .logo-text {
-            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-text-lfsa {
+            font-size: 20px;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: 3px;
             color: var(--text);
         }
-        .logo-text span { color: var(--yellow); }
+        .logo-text-digital {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 5px;
+            color: var(--yellow);
+            text-transform: uppercase;
+        }
         nav a.cta-nav {
             font-size: 14px;
             color: var(--dark);
@@ -547,8 +565,11 @@
     <nav>
         <div class="container">
             <a href="https://lfsadigital.com" class="logo">
-                <img src="logo.svg" alt="LFSA Digital">
-                <div class="logo-text">LFSA <span>Digital</span></div>
+                <div class="logo-icon"><img src="logo.svg" alt="LFSA Digital"></div>
+                <div class="logo-text">
+                    <span class="logo-text-lfsa">LFSA</span>
+                    <span class="logo-text-digital">Digital</span>
+                </div>
             </a>
             <a href="https://cal.com/luiz-almeida-9d1muz/ai-automation-for-hvac" class="cta-nav">Book Free Demo</a>
         </div>
